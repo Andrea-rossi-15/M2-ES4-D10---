@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class esercizio4 : MonoBehaviour
 {
-    public int a = 15;
+    public int dim = 15;
     // Start is called before the first frame update
     void Start()
     {
         int[] Array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        Debug.Log(string.Join(",", Array));
 
-        CambiaDimensioneArray(Array, a);
+
+        CambiaDimensioneArray(Array, dim);
 
 
     }
@@ -26,8 +26,8 @@ public class esercizio4 : MonoBehaviour
         {
             int[] NuovoArrayMinore = new int[dim];
 
-            int i = 0;
-            for (; i < dim; i++)
+
+            for (int i = 0; i < dim; i++)
             {
                 NuovoArrayMinore[i] = ArrayDaModificare[i];
             }
@@ -35,7 +35,11 @@ public class esercizio4 : MonoBehaviour
 
         }
 
+
+
+
         if (dim > ArrayDaModificare.Length)
+
         {
             int[] NuovoArrayMaggiore = new int[dim];
 
@@ -46,6 +50,10 @@ public class esercizio4 : MonoBehaviour
             }
             Debug.Log("Array Maggiore " + string.Join(",", NuovoArrayMaggiore));
         }
+
+
+
+
 
 
         if (dim == ArrayDaModificare.Length)

@@ -1,23 +1,25 @@
 using System.Globalization;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class esercizio2 : MonoBehaviour
 {
     public int a = 0;
     public int b = 10;
-    int c = 0;
+    int c = 10;
 
 
-
+    int numeroMaggiore = 0;
+    int[] arr;
     // Start is called before the first frame update
     void Start()
     {
 
-        GeneraArray(c, a, b);
-        StampaArray();
+        //GeneraArray(c, a, b);
+        //StampaArray();
         TrovaMinimo();
-        TrovaMassimo();
+        // TrovaMassimo();
 
 
 
@@ -28,13 +30,17 @@ public class esercizio2 : MonoBehaviour
     {
 
     }
-    int GeneraArray(int Dimensione, int minimo, int massimo)
+    void GeneraArray(int Dimensione, int minimo, int massimo)
     {
-        int[] Array = new int[10];
-        Dimensione = Random.Range(minimo, massimo);
-        Array[Dimensione] = Random.Range(minimo, massimo);
-        Debug.Log(Array[Dimensione]);
-        return Array[Dimensione];
+        int[] Array = new int[Dimensione];
+
+        for (int i = 0; i < Array.Length; i++)
+        {
+            Array[i] = Random.Range(minimo, massimo);
+
+        }
+        Debug.Log(string.Join(",", Array));
+
     }
 
     void StampaArray()
@@ -44,26 +50,31 @@ public class esercizio2 : MonoBehaviour
         {
             ArrayStampato[i] = Random.Range(0, 100);
             int stampa = ArrayStampato[i];
-            Debug.Log(stampa);
+
         }
+        Debug.Log(string.Join(",", ArrayStampato));
     }
 
-    int TrovaMinimo()
+    void TrovaMinimo()
     {
-        int[] ArrayMinimo = new int[9];
-        ArrayMinimo[0] = Random.Range(0, 100);
-        ArrayMinimo[1] = Random.Range(0, 100);
-        ArrayMinimo[2] = Random.Range(0, 100);
-        ArrayMinimo[3] = Random.Range(0, 100);
-        ArrayMinimo[4] = Random.Range(0, 100);
-        ArrayMinimo[5] = Random.Range(0, 100);
-        ArrayMinimo[6] = Random.Range(0, 100);
-        ArrayMinimo[7] = Random.Range(0, 100);
-        ArrayMinimo[8] = Random.Range(0, 100);
+        int max = arr[0];
+        int max2 = arr[0];
 
-        int num = ArrayMinimo.Min();
-        Debug.Log(num);
-        return num;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            int number = arr[i];
+
+            if (number > max)
+            {
+                max = number;
+            }
+            else if (number > max2 && number <= max)
+            {
+                max2 = number;
+            }
+        }
+
+
 
 
     }
